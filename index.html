@@ -16,17 +16,15 @@
 
   <div class="w-full max-w-[380px] bg-white rounded-3xl shadow-2xl overflow-hidden">
 
-    <!-- Shopify Logo - Inline SVG (Exact Green Bag) -->
+    <!-- New Shopify Hexagon Logo -->
     <div class="flex justify-center pt-10 pb-6">
-      <svg width="78" height="78" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3.5 5.5L5 19.5L12 21.5L19 19.5L20.5 5.5L12 3L3.5 5.5Z" fill="#008060"/>
-        <path d="M12 3L20.5 5.5L19 19.5L12 21.5" fill="#00A86B"/>
-        <text x="12" y="15.5" font-size="9" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">S</text>
-      </svg>
+      <div class="w-16 h-16 bg-gradient-to-br from-[#00A86B] to-[#008060] rounded-2xl flex items-center justify-center shadow-md">
+        <span class="text-white text-5xl font-black tracking-tighter leading-none">S</span>
+      </div>
     </div>
 
     <div class="px-8 pb-8">
-      <h1 class="text-[28px] font-semibold text-center mb-1">Log in</h1>
+      <h1 class="text-3xl font-semibold text-center mb-1">Log in</h1>
       <p class="text-center text-gray-600 mb-8">Continue to Shopify</p>
 
       <!-- Email -->
@@ -39,11 +37,11 @@
 
       <!-- Continue with email -->
       <button onclick="continueWithEmail()" 
-              class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3.5 rounded-2xl text-[15px] transition">
+              class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3.5 rounded-2xl text-base transition">
         Continue with email
       </button>
 
-      <!-- or -->
+      <!-- Divider -->
       <div class="flex items-center my-8">
         <div class="flex-1 h-px bg-gray-200"></div>
         <span class="px-6 text-sm text-gray-500">or</span>
@@ -53,28 +51,24 @@
       <!-- Passkey -->
       <button onclick="passkeyLogin()" 
               class="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3.5 rounded-2xl font-medium mb-4">
-        <i class="fa-solid fa-key text-xl"></i>
+        <i class="fa-solid fa-key"></i>
         Sign in with passkey
       </button>
 
-      <!-- Social Icons -->
+      <!-- Social Buttons -->
       <div class="grid grid-cols-4 gap-3">
-        <!-- Google -->
-        <button onclick="socialLogin('Google')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center p-2">
+        <button onclick="socialLogin('Google')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center">
           <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="h-8">
         </button>
         
-        <!-- Apple -->
-        <button onclick="socialLogin('Apple')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-5xl leading-none">
-          
+        <button onclick="socialLogin('Meta')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-xl font-bold text-black">
+          FF
         </button>
         
-        <!-- Facebook -->
         <button onclick="socialLogin('Facebook')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-3xl text-[#1877F2]">
           <i class="fa-brands fa-facebook-f"></i>
         </button>
         
-        <!-- WhatsApp -->
         <button onclick="socialLogin('WhatsApp')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-3xl text-[#25D366]">
           <i class="fa-brands fa-whatsapp"></i>
         </button>
@@ -82,3 +76,38 @@
 
       <!-- New to Shopify -->
       <div class="text-center mt-8 text-sm">
+        New to Shopify? 
+        <a href="#" class="text-black font-medium hover:underline">Get started →</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-gray-50 px-8 py-6 text-center border-t text-xs text-gray-500">
+      <a href="#" class="block mb-4 hover:text-gray-700">Need Help?</a>
+      <p>
+        By continuing, you agree to the <span class="underline">Terms</span> and 
+        <span class="underline">Privacy Policy</span>, and to receive marketing emails from Shopify. 
+        Unsubscribe anytime.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function continueWithEmail() {
+      const email = document.getElementById('email').value.trim();
+      if (email) alert(`Continuing with ${email}\n\n(Demo only)`);
+      else alert("Please enter your email");
+    }
+
+    function passkeyLogin() {
+      alert("🔑 Passkey login (Demo)");
+    }
+
+    function socialLogin(provider) {
+      alert(`Redirecting to ${provider}... (Demo)`);
+    }
+
+    window.onload = () => document.getElementById('email').focus();
+  </script>
+</body>
+</html>
