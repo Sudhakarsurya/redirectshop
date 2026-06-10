@@ -7,127 +7,106 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    
-    .shopify-green {
-      color: #008060;
-    }
-    
-    .btn-shopify {
-      background-color: #008060;
-      transition: background-color 0.2s;
-    }
-    
-    .btn-shopify:hover {
-      background-color: #00664d;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
   </style>
 </head>
-<body class="bg-[#f6f6f6] min-h-screen flex items-center justify-center p-4">
-  <div class="max-w-[420px] w-full bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+<body class="bg-[#0f0f0f] min-h-screen flex items-center justify-center p-6">
+  
+  <div class="w-full max-w-[380px] bg-white rounded-3xl shadow-2xl overflow-hidden">
     
     <!-- Shopify Logo -->
-    <div class="pt-10 pb-6 flex justify-center">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/shopify-logo.svg?v=1649325150" 
-           alt="Shopify" class="h-11">
+    <div class="flex justify-center pt-10 pb-6">
+      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/shopify-bag.svg" 
+           alt="Shopify" class="h-16 w-16">
     </div>
 
     <div class="px-8 pb-8">
-      <h1 class="text-3xl font-semibold text-center text-gray-900 mb-8">Log in</h1>
+      <h1 class="text-3xl font-semibold text-center mb-1">Log in</h1>
+      <p class="text-center text-gray-600 mb-8">Continue to Shopify</p>
 
-      <!-- Email -->
+      <!-- Email Input -->
       <div class="mb-6">
         <label class="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
         <input type="email" id="email" 
-               class="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:outline-none focus:border-[#008060] focus:ring-1 focus:ring-[#008060] text-base"
-               placeholder="you@example.com" autocomplete="email">
+               class="w-full px-4 py-3.5 border border-gray-300 rounded-2xl focus:outline-none focus:border-black focus:ring-1 focus:ring-black text-base"
+               placeholder=" ">
       </div>
 
-      <!-- Password -->
-      <div class="mb-6">
-        <div class="flex justify-between items-center mb-1.5">
-          <label class="block text-sm font-medium text-gray-700">Password</label>
-          <a href="#" class="text-sm shopify-green hover:underline font-medium">Forgot password?</a>
-        </div>
-        <input type="password" id="password"
-               class="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:outline-none focus:border-[#008060] focus:ring-1 focus:ring-[#008060] text-base"
-               placeholder="••••••••">
-      </div>
-
-      <!-- Continue Button -->
-      <button onclick="handleLogin()" 
-              class="btn-shopify w-full text-white font-semibold py-3.5 rounded-xl text-base shadow-sm">
-        Log in
+      <!-- Continue with Email Button -->
+      <button onclick="continueWithEmail()" 
+              class="w-full bg-black hover:bg-gray-900 text-white font-semibold py-3.5 rounded-2xl text-base transition">
+        Continue with email
       </button>
 
       <!-- Divider -->
       <div class="flex items-center my-8">
         <div class="flex-1 h-px bg-gray-200"></div>
-        <span class="px-4 text-sm text-gray-500 font-medium">or</span>
+        <span class="px-6 text-sm text-gray-500">or</span>
         <div class="flex-1 h-px bg-gray-200"></div>
       </div>
 
-      <!-- Social Buttons -->
-      <div class="space-y-3">
-        <button onclick="socialLogin('Google')" 
-                class="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3.5 rounded-xl font-medium text-base">
-          <i class="fa-brands fa-google text-[#DB4437]"></i>
-          Continue with Google
+      <!-- Passkey -->
+      <button onclick="passkeyLogin()" 
+              class="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3.5 rounded-2xl font-medium mb-3">
+        <i class="fa-solid fa-key text-xl"></i>
+        Sign in with passkey
+      </button>
+
+      <!-- Social Logins -->
+      <div class="grid grid-cols-4 gap-3">
+        <button onclick="socialLogin('Google')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-2xl">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="h-6">
         </button>
-        
-        <button onclick="socialLogin('Apple')" 
-                class="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3.5 rounded-xl font-medium text-base">
-          <i class="fa-brands fa-apple text-black text-2xl"></i>
-          Continue with Apple
+        <button onclick="socialLogin('Apple')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-3xl">
+          
         </button>
-        
-        <button onclick="socialLogin('Facebook')" 
-                class="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3.5 rounded-xl font-medium text-base">
-          <i class="fa-brands fa-facebook-f text-[#1877F2]"></i>
-          Continue with Facebook
+        <button onclick="socialLogin('Facebook')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-2xl text-[#1877F2]">
+          <i class="fa-brands fa-facebook-f"></i>
+        </button>
+        <button onclick="socialLogin('WhatsApp')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-3xl text-[#25D366]">
+          <i class="fa-brands fa-whatsapp"></i>
         </button>
       </div>
 
       <!-- Sign up -->
-      <p class="text-center mt-8 text-sm text-gray-600">
+      <div class="text-center mt-8 text-sm">
         New to Shopify? 
-        <a href="#" class="shopify-green hover:underline font-medium">Get started</a>
-      </p>
+        <a href="#" class="text-black font-medium hover:underline">Get started →</a>
+      </div>
     </div>
 
     <!-- Footer -->
-    <div class="bg-gray-50 border-t px-8 py-6 text-xs text-gray-500">
-      <div class="flex justify-center gap-6 mb-4">
-        <a href="#" class="hover:text-gray-700">Terms</a>
-        <a href="#" class="hover:text-gray-700">Privacy</a>
-        <a href="#" class="hover:text-gray-700">Help</a>
-      </div>
-      <p class="text-center leading-relaxed">
-        By continuing, you agree to Shopify’s <span class="underline">Terms of Service</span> and 
-        <span class="underline">Privacy Policy</span>, and to receive marketing emails from Shopify.
+    <div class="bg-gray-50 px-8 py-6 text-center border-t text-xs text-gray-500">
+      <a href="#" class="block mb-4 hover:text-gray-700">Need Help?</a>
+      <p>
+        By continuing, you agree to the <span class="underline">Terms</span> and 
+        <span class="underline">Privacy Policy</span>, and to receive marketing emails from Shopify. 
+        <span class="underline">Unsubscribe anytime.</span>
       </p>
     </div>
   </div>
 
   <script>
-    function handleLogin() {
+    function continueWithEmail() {
       const email = document.getElementById('email').value.trim();
-      if (!email) {
-        alert("Please enter your email address.");
-        return;
+      if (email) {
+        alert(`✅ Continuing with ${email}\n\n(This is a visual demo only)`);
+      } else {
+        alert("Please enter your email");
       }
-      alert(`✅ Successfully logged in as ${email}\n\n(This is a visual clone only)`);
+    }
+
+    function passkeyLogin() {
+      alert("🔑 Passkey login triggered (Demo)");
     }
 
     function socialLogin(provider) {
-      alert(`🔄 Redirecting to ${provider}...\n\n(Demo only)`);
+      alert(`🔄 Redirecting to ${provider} login...\n\n(Demo only)`);
     }
 
-    // Auto focus email
+    // Auto focus
     window.onload = () => document.getElementById('email').focus();
   </script>
 </body>
