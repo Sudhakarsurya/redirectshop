@@ -16,10 +16,13 @@
   
   <div class="w-full max-w-[380px] bg-white rounded-3xl shadow-2xl overflow-hidden">
     
-    <!-- Shopify Logo (Fixed) -->
+    <!-- Shopify Logo (Inline SVG) -->
     <div class="flex justify-center pt-10 pb-6">
-      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/shopify-bag-green.svg" 
-           alt="Shopify" class="h-16 w-16">
+      <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10 L85 25 L85 75 L50 90 L15 75 L15 25 L50 10 Z" fill="#008060"/>
+        <path d="M50 10 L85 25 L50 40 L15 25 L50 10 Z" fill="#00A86B"/>
+        <text x="50" y="58" font-size="28" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">S</text>
+      </svg>
     </div>
 
     <div class="px-8 pb-8">
@@ -61,7 +64,7 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="h-7">
         </button>
         
-        <!-- Apple (Fixed) -->
+        <!-- Apple -->
         <button onclick="socialLogin('Apple')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-4xl leading-none">
           
         </button>
@@ -98,11 +101,8 @@
   <script>
     function continueWithEmail() {
       const email = document.getElementById('email').value.trim();
-      if (email) {
-        alert(`Continuing with ${email}\n\n(Demo only)`);
-      } else {
-        alert("Please enter your email");
-      }
+      if (email) alert(`Continuing with ${email}\n\n(Demo)`);
+      else alert("Please enter your email");
     }
 
     function passkeyLogin() {
