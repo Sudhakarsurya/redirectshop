@@ -12,38 +12,38 @@
     }
   </style>
 </head>
-<body class="bg-[#0f0f0f] min-h-screen flex items-center justify-center p-6">
-  
+<body class="bg-[#0a0a0a] min-h-screen flex items-center justify-center p-6">
+
   <div class="w-full max-w-[380px] bg-white rounded-3xl shadow-2xl overflow-hidden">
-    
-    <!-- Shopify Logo (Inline SVG) -->
+
+    <!-- Shopify Logo - Inline SVG (Exact Green Bag) -->
     <div class="flex justify-center pt-10 pb-6">
-      <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 10 L85 25 L85 75 L50 90 L15 75 L15 25 L50 10 Z" fill="#008060"/>
-        <path d="M50 10 L85 25 L50 40 L15 25 L50 10 Z" fill="#00A86B"/>
-        <text x="50" y="58" font-size="28" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">S</text>
+      <svg width="78" height="78" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.5 5.5L5 19.5L12 21.5L19 19.5L20.5 5.5L12 3L3.5 5.5Z" fill="#008060"/>
+        <path d="M12 3L20.5 5.5L19 19.5L12 21.5" fill="#00A86B"/>
+        <text x="12" y="15.5" font-size="9" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">S</text>
       </svg>
     </div>
 
     <div class="px-8 pb-8">
-      <h1 class="text-3xl font-semibold text-center mb-1">Log in</h1>
+      <h1 class="text-[28px] font-semibold text-center mb-1">Log in</h1>
       <p class="text-center text-gray-600 mb-8">Continue to Shopify</p>
 
-      <!-- Email Input -->
+      <!-- Email -->
       <div class="mb-6">
         <label class="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
         <input type="email" id="email" 
-               class="w-full px-4 py-3.5 border border-gray-300 rounded-2xl focus:outline-none focus:border-black focus:ring-1 focus:ring-black text-base"
+               class="w-full px-5 py-3.5 border border-gray-300 rounded-2xl focus:outline-none focus:border-black focus:ring-1 text-base"
                placeholder=" ">
       </div>
 
-      <!-- Continue with Email -->
+      <!-- Continue with email -->
       <button onclick="continueWithEmail()" 
-              class="w-full bg-black hover:bg-gray-900 text-white font-semibold py-3.5 rounded-2xl text-base transition">
+              class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3.5 rounded-2xl text-[15px] transition">
         Continue with email
       </button>
 
-      <!-- Divider -->
+      <!-- or -->
       <div class="flex items-center my-8">
         <div class="flex-1 h-px bg-gray-200"></div>
         <span class="px-6 text-sm text-gray-500">or</span>
@@ -52,25 +52,25 @@
 
       <!-- Passkey -->
       <button onclick="passkeyLogin()" 
-              class="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3.5 rounded-2xl font-medium mb-3">
-        <i class="fa-solid fa-key"></i>
+              class="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3.5 rounded-2xl font-medium mb-4">
+        <i class="fa-solid fa-key text-xl"></i>
         Sign in with passkey
       </button>
 
-      <!-- Social Logins -->
+      <!-- Social Icons -->
       <div class="grid grid-cols-4 gap-3">
         <!-- Google -->
-        <button onclick="socialLogin('Google')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="h-7">
+        <button onclick="socialLogin('Google')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center p-2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="h-8">
         </button>
         
         <!-- Apple -->
-        <button onclick="socialLogin('Apple')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-4xl leading-none">
+        <button onclick="socialLogin('Apple')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-5xl leading-none">
           
         </button>
         
         <!-- Facebook -->
-        <button onclick="socialLogin('Facebook')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-2xl text-[#1877F2]">
+        <button onclick="socialLogin('Facebook')" class="aspect-square border border-gray-300 hover:bg-gray-50 rounded-2xl flex items-center justify-center text-3xl text-[#1877F2]">
           <i class="fa-brands fa-facebook-f"></i>
         </button>
         
@@ -80,40 +80,5 @@
         </button>
       </div>
 
-      <!-- Get Started -->
+      <!-- New to Shopify -->
       <div class="text-center mt-8 text-sm">
-        New to Shopify? 
-        <a href="#" class="text-black font-medium hover:underline">Get started →</a>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="bg-gray-50 px-8 py-6 text-center border-t text-xs text-gray-500">
-      <a href="#" class="block mb-4 hover:text-gray-700">Need Help?</a>
-      <p>
-        By continuing, you agree to the <span class="underline">Terms</span> and 
-        <span class="underline">Privacy Policy</span>, and to receive marketing emails from Shopify. 
-        <span class="underline">Unsubscribe anytime.</span>
-      </p>
-    </div>
-  </div>
-
-  <script>
-    function continueWithEmail() {
-      const email = document.getElementById('email').value.trim();
-      if (email) alert(`Continuing with ${email}\n\n(Demo)`);
-      else alert("Please enter your email");
-    }
-
-    function passkeyLogin() {
-      alert("🔑 Passkey login (Demo)");
-    }
-
-    function socialLogin(provider) {
-      alert(`Redirecting to ${provider}... (Demo only)`);
-    }
-
-    window.onload = () => document.getElementById('email').focus();
-  </script>
-</body>
-</html>
